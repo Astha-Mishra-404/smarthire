@@ -1,0 +1,114 @@
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+body,html{
+  font-family:'Segoe UI',sans-serif;
+  background:#f5f7fa;
+  color:#222;
+  transition:background 0.3s,color 0.3s;
+}
+body.dark-mode{background:#121212;color:#eee}
+
+/* Progress Bar */
+#progress-bar{
+  position:fixed;top:0;left:0;height:4px;width:0%;
+  background:linear-gradient(90deg,#36d1dc,#5b86e5);
+  z-index:10000;
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle-container{
+  position:fixed;top:12px;right:20px;
+  display:flex;gap:8px;align-items:center;
+  background:rgba(255,255,255,0.9);
+  padding:6px 14px;border-radius:25px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  z-index:10002;
+}
+.toggle-label{font-size:0.9rem;font-weight:600}
+.dark-toggle{
+  background:linear-gradient(120deg,#36d1dc,#5b86e5);color:#fff;
+  border:none;padding:6px 12px;border-radius:20px;
+  cursor:pointer;font-weight:600;
+}
+body.dark-mode .dark-mode-toggle-container{background:rgba(0,0,0,0.6)}
+
+/* Register Layout */
+.register-container{height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.register-card{
+  width:420px;max-width:95%;
+  background:linear-gradient(135deg,#ffffff,#f0f8ff);
+  border-radius:20px;
+  padding:45px 35px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.15);
+  text-align:center;
+  animation:floatIn 1s ease forwards;
+  position:relative;
+  overflow:hidden;
+}
+.register-card::before{
+  content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,#36d1dc2b,#5b86e522,transparent 70%);
+  animation:bgMove 12s linear infinite;
+}
+.register-card>*{position:relative;z-index:1}
+body.dark-mode .register-card{
+  background:linear-gradient(145deg,#1a1d21,#101114);
+  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+}
+
+/* Animations */
+@keyframes floatIn{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes bgMove{
+  0%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(-5%,-5%) rotate(180deg)}
+  100%{transform:translate(0,0) rotate(360deg)}
+}
+
+/* Headers */
+.title{font-size:2rem;font-weight:bold;margin-bottom:10px;color:#36d1dc}
+body.dark-mode .title{color:#00e0ff}
+.subtitle{margin-bottom:30px;color:#444}
+body.dark-mode .subtitle{color:#bbb}
+.brand{
+  background:linear-gradient(120deg,#ff6600,#ff3366);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  font-weight:bold;
+}
+
+/* Form */
+.register-form{display:flex;flex-direction:column;gap:18px;text-align:left}
+.form-group{
+  display:flex;align-items:center;
+  border:2px solid #36d1dc;background:#fff;
+  border-radius:12px;padding:10px;
+  transition:0.3s;
+}
+.form-group input{
+  border:none;outline:none;flex:1;background:transparent;
+  font-size:1rem;margin-left:10px;padding:4px
+}
+.form-group i{color:#36d1dc;font-size:1.1rem}
+.form-group:focus-within{border-color:#5b86e5;box-shadow:0 0 8px rgba(91,134,229,0.4)}
+.form-group input::placeholder{color:#888;transition:0.3s}
+.form-group input:focus::placeholder{color:transparent}
+
+/* Dark Mode Inputs */
+body.dark-mode .form-group{background:#222;border:2px solid #00cfd5}
+body.dark-mode .form-group i{color:#00e0ff}
+body.dark-mode .form-group input{color:#eee}
+
+/* Special styling for skills */
+.form-group.skills input{font-style:italic;color:#555}
+body.dark-mode .form-group.skills input{color:#fffdfd;font-style:italic}
+
+/* Button */
+.btn-submit{
+  padding:14px;border:none;border-radius:30px;
+  background:linear-gradient(120deg,#5b86e5,#36d1dc);
+  color:white;font-weight:bold;cursor:pointer;transition:0.3s;
+}
+.btn-submit:hover{transform:scale(1.05);box-shadow:0 6px 18px rgba(54,209,220,0.4)}
+
+.login-link{text-align:center;margin-top:15px}
+.login-link a{color:#36d1dc;font-weight:600;text-decoration:none}
+.login-link a:hover{color:#5b86e5}

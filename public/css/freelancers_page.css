@@ -1,0 +1,167 @@
+
+
+/* Inherits base styles from styles.css */
+.page-container {
+    max-width: 1200px;
+    margin: 20px auto 80px auto;
+    padding: 20px;
+    width: 100%;
+}
+.discovery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.discovery-header .title {
+    font-size: 2.8rem;
+    color: #36d1dc;
+}
+body.dark-mode .discovery-header .title {
+    color: #00e0ff;
+}
+.discovery-header .subtitle {
+    color: #555;
+}
+body.dark-mode .discovery-header .subtitle {
+    color: #bbb;
+}
+/* Search Bar */
+.search-section {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: white;
+}
+body.dark-mode .search-section {
+    background: #222;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.search-section input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background: transparent;
+    color: #333;
+}
+body.dark-mode .search-section input {
+    color: #eee;
+}
+.search-section button {
+    background: linear-gradient(120deg,#5b86e5,#36d1dc);
+    color: white;
+    border: none;
+    padding: 0 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+.search-section button:hover {
+    background: linear-gradient(120deg,#36d1dc,#5b86e5);
+}
+/* Freelancers Grid */
+.freelancers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.freelancer-card {
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: #222;
+}
+body.dark-mode .freelancer-card {
+    background: linear-gradient(145deg, #1a1d21, #101114);
+    color: #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.freelancer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(54,209,220,0.3);
+}
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #36d1dc;
+}
+.freelancer-card h4 {
+    color: #5b86e5;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+body.dark-mode .freelancer-card h4 {
+    color: #00e0ff;
+}
+.freelancer-card p {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+body.dark-mode .freelancer-card p {
+    color: #bbb;
+}
+.rating {
+    color: gold;
+    margin-bottom: 15px;
+}
+.skills-tag {
+    display: inline-block;
+    background: rgba(54,209,220,0.2);
+    color: #36d1dc;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 2px;
+}
+/* Pagination Controls */
+.pagination-controls {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.pagination-controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(120deg,#5b86e5,#36d1dc);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.pagination-controls button:hover:not(:disabled) {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+.pagination-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+#page-info {
+    font-weight: 600;
+    color: #555;
+}
+body.dark-mode #page-info {
+    color: #bbb;
+}
