@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register | Smart Hire</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+<body class="dark-mode">
+
+
+<div class="dark-mode-toggle-container">
+    <span class="toggle-label">Theme:</span>
+    <button class="dark-toggle" aria-label="Toggle dark mode">Light Mode</button>
+</div>
+
+<div class="login-container" data-sr>
+    <div class="login-card">
+        <h1 class="title">Join Smart Hire</h1>
+        <p class="subtitle">Create your account</p>
+
+        <!-- Registration Form -->
+        <form class="login-form" id="register-form">
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="register-name" placeholder="Full Name" required />
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="register-email" placeholder="Email Address" required />
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="register-password" placeholder="Password" required />
+            </div>
+
+            <div class="form-group role-selector" style="display: block; border: none; padding: 0;">
+                <p style="margin: 0 0 10px 0; color: var(--light-text); font-weight: 600;">I am registering as a:</p>
+                <div style="display: flex; gap: 20px; justify-content: center; text-align: left;">
+                    <label>
+                        <input type="radio" name="role" value="provider" checked required> Freelance Provider
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="seeker" required> Service Seeker
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Register</button>
+            <p class="register-link">Already have an account? <a href="login.html">Log in here</a></p>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();  // Prevent the form from submitting the traditional way
+
+    // Collecting form data
+    const name = document.getElementById('register-name').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+    const role = document.querySelector('input[name="role"]:checked').value;
+
+    try {
+        // Send the registration data to the server via a POST request
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, role }) // Send the data as JSON
+        });
+
+        const result = await response.json(); // Parse the JSON response from the server
+
+        // Check if registration is successful
+        if (result.message && result.message.includes('successful')) {
+            alert('Registration successful! You can now log in.');
+            window.location.href = 'login.html';  // Redirect to login page after successful registration
+        } else {
+            // Handle any errors (server-side validation or issues)
+            alert(result.error || 'An error occurred during registration.');
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Error registering user. Please try again.');
+    }
+});
+</script>
+
+<script>
+document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();  // Prevent the form from submitting the traditional way
+
+    // Collecting form data
+    const name = document.getElementById('register-name').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+    const role = document.querySelector('input[name="role"]:checked').value;
+
+    // Local Storage functionality
+    const userKey = `user_${email}`;
+
+    // Check if the user already exists in localStorage
+    if (localStorage.getItem(userKey)) {
+        alert("Registration failed. A user with this email already exists.");
+        return;
+    }
+
+    // Create new user object
+    const newUser = {
+        name: name,
+        email: email,
+        password: password,
+        role: role
+    };
+
+    // Store user data in localStorage
+    localStorage.setItem(userKey, JSON.stringify(newUser));
+
+    alert("Registration Successful! You can now log in with your email and password.");
+    window.location.href = 'login.html';  // Redirect to login page after successful registration
+});
+</script>
+
+
+</body>
+</html>

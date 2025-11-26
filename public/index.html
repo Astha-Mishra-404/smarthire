@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Hire: Local Freelancers & Services</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div class="dark-mode-toggle-container">
+        <span class="toggle-label">Theme:</span>
+        <button class="dark-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+    </div>
+    <nav id="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="freelancers.html">Discover</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="dashboard.html">Dashboard</a>
+        <div class="auth-buttons">
+            <button class="auth-button" onclick="window.location.href='login.html'">Login</button>
+            <button class="auth-button" onclick="window.location.href='register.html'">Sign Up</button>
+        </div>
+    </nav>
+    <header id="home" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80');">
+        <div class="header-content">
+            <h1 class="site-title">Smart Hire</h1>
+            <p>Local Freelancers & Services Booking Platform</p>
+            <a href="freelancers.html" class="btn">Explore Services</a>
+            <div class="scroll-indicator"> Scroll Down to explore</div>
+        </div>
+    </header>
+    <div class="container">
+        <section id="features">
+            <h2>Our Services</h2>
+            <p>Discover a wide range of services to transform your ideas into reality. <a href="freelancers.html" style="color:#5b86e5;font-weight:bold;text-decoration:none;">Find our freelancers here!</a></p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-users fa-3x icon"></i>
+                    <h3>Find Freelancers</h3>
+                    <p>Browse profiles, portfolios, and ratings to hire the perfect expert for your project.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-calendar-check fa-3x icon"></i>
+                    <h3>Book Services</h3>
+                    <p>Schedule and manage your bookings with ease through a seamless interface.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock fa-3x icon"></i>
+                    <h3>Secure Payments</h3>
+                    <p>Work confidently with safe transactions and complete payment protection.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-tasks fa-3x icon"></i>
+                    <h3>Project Management</h3>
+                    <p>Track progress, collaborate, and finish projects on time with built-in tools.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about-section">
+            <h2>About Smart Hire</h2>
+            <div class="about-container">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80" alt="Teamwork" />
+                <div class="about-text">
+                    <p><strong>Smart Hire</strong> bridges the gap between talented freelancers and businesses. We focus on <span class="highlight">trust, transparency, and innovation</span>.</p>
+                    <p>Our platform makes hiring simple, secure, and impactful. Build your dream team effortlessly and achieve more.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </section>
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial">
+                        <p>"Smart Hire helped me find the perfect freelancer to launch my website."</p>
+                        <strong>- Sarah J.</strong>
+                    </div>
+                    <div class="testimonial">
+                        <p>"The booking system is smooth, intuitive, and stress-free!"</p>
+                        <strong>- Mark D.</strong>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Very good service. I like it."</p>
+                        <strong>- Reoner.</strong>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Smart Hire helped me find the perfect freelancer to launch my website."</p>
+                        <strong>- Emily R.</strong>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-button" onclick="moveTestimonial(-1)"></button>
+                    <button class="testimonial-button" onclick="moveTestimonial(1)"></button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        // When the page loads, enable dark mode by default
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set dark mode by default
+            document.body.classList.add("dark-mode");
+
+            // Optionally, save the dark mode preference to localStorage
+            localStorage.setItem("theme", "dark");
+        });
+
+        // Toggle dark mode on button click
+        const darkToggle = document.querySelector('.dark-toggle');
+        darkToggle.addEventListener('click', function() {
+            document.body.classList.toggle("dark-mode");
+
+            // Save the preference to localStorage
+            const currentTheme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("theme", currentTheme);
+        });
+    </script>
+</body>
+</html>

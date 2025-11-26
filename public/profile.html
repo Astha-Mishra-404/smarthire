@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile | Smart Hire</title>
+    <link rel="stylesheet" href="/css/styles.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/css/profile_page.css" /> 
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div class="dark-mode-toggle-container">
+        <span class="toggle-label">💡 Theme:</span>
+        <button class="dark-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+    </div>
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="freelancers.html">Discover</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="dashboard.html">Dashboard</a>
+        <div class="auth-buttons">
+            <button class="auth-button" onclick="window.location.href='login.html'">Login</button>
+            <button class="auth-button" onclick="window.location.href='register.html'">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <section class="profile-card" id="profile-details" data-sr>
+            </section>
+        
+        <div class="action-buttons">
+            <button class="btn-primary" id="book-now-btn"><i class="fas fa-calendar-check"></i> Book Now</button>
+            <button class="btn-secondary" id="message-btn"><i class="fas fa-message"></i> Send Message</button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </footer>
+
+    <div id="email-alert" class="popup-alert">
+        <div class="popup-content">
+            <i class="fas fa-paper-plane"></i>
+            <h3>Booking Request Sent!</h3>
+            <p>Your appointment request has been successfully sent to <span id="alert-freelancer-name"></span> via email. They will contact you shortly.</p>
+            <button onclick="closePopupAlert()">Close</button>
+        </div>
+    </div>
+
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('message-modal')">&times;</span>
+            <h2 class="modal-header"><i class="fas fa-comments"></i> Message <span id="modal-freelancer-name"></span></h2>
+            <form onsubmit="sendMessage(event)">
+                <p>You are reaching out to a **<span id="modal-freelancer-skill"></span>** specialist.</p>
+                <textarea id="message-text" placeholder="Type your message here..." rows="6" required></textarea>
+                <button type="submit" class="btn-send"><i class="fas fa-envelope"></i> Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/js/script.js"></script> 
+    <script src="/js/freelancers.js"></script> 
+    <script src="/js/profile.js"></script> 
+</body>
+</html>
